@@ -18,6 +18,7 @@
             --highlight: #fdcb6e;    /* Yellow for highlights */
             --contact-color: #0984e3; /* Blue for contact section */
             --card-bg: rgba(45, 52, 54, 0.7); /* Card background */
+            --certificate-color: #00b894; /* Mint green for certificates */
         }
 
         * {
@@ -398,6 +399,33 @@
             color: rgba(245, 246, 250, 0.8);
             font-size: 1.1rem;
         }
+        /* Acadamic Details */
+    .circular-progress {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .progress-ring {
+        transform: rotate(-90deg);
+    }
+
+    .progress-ring-circle {
+        stroke-dasharray: 326.56;
+        stroke-dashoffset: 326.56;
+        transition: stroke-dashoffset 1s ease-in-out;
+    }
+
+    .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--light);
+    }
 
         /* Profile Section */
         #profiles .card:nth-child(1) h3 {
@@ -456,6 +484,133 @@
         .profile-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Certificates Section */
+        #certificates {
+            position: relative;
+        }
+
+        #certificates h2 {
+            background: linear-gradient(90deg, var(--primary), var(--certificate-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        #certificates h2::after {
+            background: linear-gradient(90deg, var(--primary), var(--certificate-color));
+        }
+
+        .certificate-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .certificate-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 184, 148, 0.1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 184, 148, 0.3);
+        }
+
+        .platform-header {
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .platform-header i {
+            font-size: 2.5rem;
+        }
+
+        .platform-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+        }
+
+        .certificate-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .certificate-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(0, 184, 148, 0.1);
+            color: var(--secondary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .certificate-date {
+            color: rgba(245, 246, 250, 0.7);
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .certificate-btn {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(0, 184, 148, 0.1);
+            color: var(--light);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 184, 148, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .certificate-btn:hover {
+            background: rgba(0, 184, 148, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .certificate-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Contact Section */
@@ -655,6 +810,10 @@
             .form-container {
                 padding: 2rem;
             }
+            
+            .certificate-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -667,7 +826,9 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#academics">Academics</a></li>
                     <li><a href="#profiles">Profiles</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -677,11 +838,11 @@
     <section id="home">
         <div class="particles" id="particles-js"></div>
         <div class="hero-content animate-in">
-            <div class="profile-img-container float-animation">
+            <!-- <div class="profile-img-container float-animation">
                 <img src="#" alt="Profile" class="profile-img">
-            </div>
+            </div> -->
             <div class="hero-text">
-                <h1>Kona Durga Satya Charan</h1>
+                <h1>Kona Durga Satya Sai Charan</h1>
                 <p>Computer Science Student & <span class="hero-highlight">Machine Learning</span> Enthusiast</p>
                 <p>Building intelligent solutions and beautiful digital experiences</p>
                 <div class="cta-container">
@@ -697,7 +858,7 @@
         <div class="about-content">
             <div class="about-text">
                 <p><center>
-                    Hi! I'm Kona Durga Satya Sai Charan, a Computer Science student at SASI Institute of Technology and Engineering. I’m passionate about solving complex problems and creating innovative, impactful solutions. My interests include deep learning, NLP, and predictive analytics, and I enjoy working on challenging projects to build intelligent, scalable systems. I’m driven to learn, innovate, and advance technology!
+                    Hi! I'm Kona Durga Satya Sai Charan, a Computer Science student at SASI Institute of Technology and Engineering. I'm passionate about solving complex problems and creating innovative, impactful solutions. My interests include deep learning, NLP, and predictive analytics, and I enjoy working on challenging projects to build intelligent, scalable systems. I'm driven to learn, innovate, and advance technology!
                 </center>
                 </p>
                 <p><center>
@@ -727,7 +888,59 @@
             </div>
         </div>
     </section>
-
+<!-- Add this section after the Skills section and before the Profiles section -->
+<section id="academics" class="animate-in">
+    <h2>Academic Performance</h2>
+    <div class="grid-container">
+        <!-- Semester 1 -->
+        <div class="card">
+            <div class="circular-progress" data-value="8.14">
+                <svg class="progress-ring" width="120" height="120">
+                    <circle class="progress-ring-circle" stroke="#6c5ce7" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                </svg>
+                <div class="progress-text">8.14</div>
+            </div>
+            <h3 style="color: aliceblue;">Semester 1</h3>
+            <p style="color: aliceblue;">GPA out of 10</p>
+        </div>
+        
+        <!-- Semester 2 -->
+        <div class="card">
+            <div class="circular-progress" data-value="8.26">
+                <svg class="progress-ring" width="120" height="120">
+                    <circle class="progress-ring-circle" stroke="#00cec9" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                </svg>
+                <div class="progress-text">8.26</div>
+            </div>
+            <h3 style="color: aliceblue;">Semester 2</h3>
+            <p style="color: aliceblue;">GPA out of 10</p>
+        </div>
+        
+        <!-- Semester 3 -->
+        <div class="card">
+            <div class="circular-progress" data-value="8.35">
+                <svg class="progress-ring" width="120" height="120">
+                    <circle class="progress-ring-circle" stroke="#fd79a8" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                </svg>
+                <div class="progress-text">8.35</div>
+            </div>
+            <h3 style="color: aliceblue;">Semester 3</h3>
+            <p style="color: aliceblue;">GPA out of 10</p>
+        </div>
+        
+        <!-- Semester 4 -->
+        <!-- <div class="card">
+            <div class="circular-progress" data-value="9.2">
+                <svg class="progress-ring" width="120" height="120">
+                    <circle class="progress-ring-circle" stroke="#fdcb6e" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                </svg>
+                <div class="progress-text">9.2</div>
+            </div>
+            <h3>Semester 4</h3>
+            <p>GPA out of 10</p>
+        </div> -->
+    </div>
+</section>
     <section id="profiles" class="animate-in">
         <h2>Profiles</h2>
         <div class="grid-container">
@@ -754,6 +967,130 @@
                 <h3>LinkedIn</h3>
                 <p style="color: aliceblue;">Professional network and achievements</p>
                 <a href="#" target="_blank" class="profile-btn">Connect</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="animate-in">
+        <h2>Certificates</h2>
+        <div class="certificate-container">
+            <!-- CodeChef Platform -->
+            <div class="certificate-card">
+                <div class="platform-header" style="background: linear-gradient(135deg, rgba(0, 184, 148, 0.8), rgba(0, 184, 148, 0.6));">
+                    <i class="fas fa-code"></i>
+                    <h3>CodeChef</h3>
+                </div>
+                <div class="certificate-content">
+                    <div class="certificate-item">
+                        <h4 class="certificate-title">Advanced Python</h4>
+                        <div class="certificate-date">Issued March 2025</div>
+                        <a href="https://www.codechef.com/certificates/public/fbf2c7b" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                    
+                    <div class="certificate-item">
+                        <h4 class="certificate-title">500 difficulty rating</h4>
+                        <div class="certificate-date">Issued November 2024</div>
+                        <a href="https://www.codechef.com/certificates/public/8822016" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- HackerRank Platform -->
+            <div class="certificate-card">
+                <div class="platform-header" style="background: linear-gradient(135deg, rgba(9, 132, 227, 0.8), rgba(9, 132, 227, 0.6));">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>HackerRank</h3>
+                </div>
+                <div class="certificate-content">
+                    <div class="certificate-item">
+                        <h4 class="certificate-title">SQL (Basic)</h4>
+                        <div class="certificate-date">Issued March 2025</div>
+                        <a href="https://www.hackerrank.com/certificates/393bdb75a7da" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                    
+                    <div class="certificate-item">
+                        <h4 class="certificate-title">SQL (Intermediate)</h4>
+                        <div class="certificate-date">Issued March 2025</div>
+                        <a href="https://www.hackerrank.com/certificates/7751b786a47f" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                    
+                    <div class="certificate-item">
+                        <h4 class="certificate-title">JAVA (Basic)</h4>
+                        <div class="certificate-date">Issued March 2025</div>
+                        <a href="https://www.hackerrank.com/certificates/d8400f29cdd5" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Coursera Platform -->
+            <div class="certificate-card">
+                <div class="platform-header" style="background: linear-gradient(135deg, rgba(253, 203, 110, 0.8), rgba(253, 203, 110, 0.6));">
+                    <i class="fas fa-university"></i>
+                    <h3>Coursera</h3>
+                </div>
+                <div class="certificate-content">
+                    <div class="certificate-item">
+                        <h4><strong>University Of Michigan</strong></h4>
+                        <h4 class="certificate-title">Programming for Everybody (Getting Started with Python)</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Python</span>
+                            <!-- <span class="tech-tag">TensorFlow</span> -->
+                        </div>
+                        <div class="certificate-date">Issued March 2025</div>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/5YI12Z93IEG5" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                    
+                    <div class="certificate-item">
+                        <h4><strong>W3 Schools</strong></h4>
+                        <h4 class="certificate-title">Cyber Security Tutorial</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Firewalls</span>
+                            <span class="tech-tag">IDS/IPS</span>
+                            <span class="tech-tag">VPN</span>
+                            <span class="tech-tag">Wireshark</span>
+                            <span class="tech-tag">Nmap</span>
+                            <span class="tech-tag">SIEM</span>
+                        </div>
+                        <div class="certificate-date">Issued December 2022</div>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/21TJXZV7QUUO" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Infosys SpringBoard -->
+            <div class="certificate-card">
+                <div class="platform-header" style="background: linear-gradient(135deg, rgba(232, 67, 147, 0.8), rgba(232, 67, 147, 0.6));">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Infosys SpringBoard</h3>
+                </div>
+                <div class="certificate-content">
+                    <div class="certificate-item">
+                        <h4 class="certificate-title">Basics of Python</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Variables</span>
+                            <span class="tech-tag">Opreators</span>
+                            <span class="tech-tag">Conditionals</span>
+                            <span class="tech-tag">Loops</span>
+                            <span class="tech-tag">Functions</span>
+                        </div>
+                        <div class="certificate-date">Issued March 2025</div>
+                        <a href="https://docs.google.com/document/d/e/2PACX-1vTrx8Ys-cXJlRpTzqaytu5mldSbo-rSzb4bYSjbfXLaV3y3-9dnQMBoC9t6-p49F57swdgFc-XbKaMj/pub" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                    
+                    <div class="certificate-item">
+                        <h4 class="certificate-title">Securing The Backend Layers</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">OAuth 2.0</span>
+                            <span class="tech-tag">Session Mgmt</span>
+                            <span class="tech-tag">RBAC</span>
+                            <span class="tech-tag">ABAC</span>
+                        </div>
+                        <div class="certificate-date">Issued February 2025</div>
+                        <a href="https://docs.google.com/document/d/e/2PACX-1vR5m9PDEmr__sKskvMxdeq6SFS_qp_12F_204Olsdsrly_hM27UpvDwRJ3a8qFklZgltrhbQ0yQ-Cq5/pub" target="_blank" class="certificate-btn">View Certificate</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -785,7 +1122,9 @@
                 <div class="mb-3">
                     <textarea class="form-control" rows="5" placeholder="Your Message" required style="color: aliceblue;"></textarea>
                 </div>
+                <a href="mailto:saicharan.kona@sasi.ac.in">
                 <button type="submit" class="cta-btn w-100">Send Message</button>
+                </a>
             </form>
         </div>
     </section>
@@ -936,7 +1275,28 @@
                 });
             }
         });
+         // Animate circular progress bars when section comes into view
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.circular-progress');
+                    progressBars.forEach(bar => {
+                        const value = parseFloat(bar.getAttribute('data-value'));
+                        const circle = bar.querySelector('.progress-ring-circle');
+                        const circumference = 2 * Math.PI * 52;
+                        const offset = circumference - (value / 10) * circumference;
+                        circle.style.strokeDashoffset = offset;
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
 
+        const academicsSection = document.querySelector('#academics');
+        if (academicsSection) {
+            observer.observe(academicsSection);
+        }
+    });
         // Animation on scroll
         const animateElements = document.querySelectorAll('.animate-in');
         
